@@ -10,6 +10,7 @@ public class GameOverUI : MonoBehaviour
     private void Start() {
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = 0;
+        _restartButton.enabled = false;
 
         GameManager.Instance.GameOvered += OnGameOvered;
         _restartButton.onClick.AddListener(GameManager.Instance.RestartGame);
@@ -22,5 +23,6 @@ public class GameOverUI : MonoBehaviour
 
     private void OnGameOvered() {
         _canvasGroup.alpha = 1;
+        _restartButton.enabled = true;
     }
 }
